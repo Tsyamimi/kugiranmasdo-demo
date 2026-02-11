@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kugiran Masdo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/ticket.css">
+	<link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-poppins">
+     <nav class="flex justify-between items-center p-6 bg-black sticky top-0 z-50">
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+    </div>
+    
+    <a href="index.html" class="logo-link">
+        <img src="img/masdo_logo.png" alt="Masdo Logo" class="h-16">
+    </a>
+    
+    <div class="nav-links">
+        <a href="ticket.html">TICKET</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+   <section class="hero-section">
+    <div class="hero-image-container">
+        <img src="img/ticket_bg.png" alt="Masdo Live" class="hero-img">
+    </div>
+</section>
+	<section class="tour-section">
+    <div class="tour-header">
+        <h2>Tour Dates</h2>
+        <div class="divider"></div>
+    </div>
+
+    <div class="tour-container">
+    <div class="tour-row">
+        <div class="tour-info">
+            <p class="tour-date">May 3, 2026</p>
+            <div class="tour-details">
+                <span class="event-name">Temasya Buka Panggung</span>
+                <span class="location">PAJC, Petaling</span>
+            </div>
+        </div>
+        <div class="tour-actions">
+            <a href="ticketbuy.html" target="_blank">
+                <button class="btn-ticket">TICKET</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="tour-row">
+        <div class="tour-info">
+            <p class="tour-date">Aug 13, 2026</p>
+            <div class="tour-details">
+                <span class="event-name">Kugiran Masdo 10 tahun</span>
+                <span class="location1">Zepp, KL</span>
+            </div>
+        </div>
+        <div class="tour-actions">
+            <a href="ticketbuy2.html" target="_blank">
+                <button class="btn-ticket">TICKET</button>
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+<footer id="contact" class="main-footer" style="padding-top: 100px;">
+    <div class="footer-container">
+        <div class="footer-left">
+            <img src="img/masdo_logo.png" alt="Masdo Logo" class="footer-logo">
+        </div>
+
+        <div class="footer-center">
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/channel/UCbqZQtg_OZOY0oowT1e1O_g" style="--size: 40px;">
+                    <img src="img/youtube_logo.png" alt="YouTube">
+                </a>
+                <a href="https://open.spotify.com/artist/2r1WoyhX1FSc7AmcF8rkoO?trackId=31ECplyzYRmbQihescMh6N" style="--size: 35px;">
+                    <img src="img/spotify_logo.png" alt="Spotify">
+                </a>
+                <a href="https://www.instagram.com/kugiranmasdo/" style="--size: 38px;">
+                    <img src="img/instagram_logo.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@.masdo" style="--size: 36px;">
+                    <img src="img/tiktok_logo.png" alt="TikTok">
+                </a>
+            </div>
+            <p class="copyright">© 2026 Kugiran Masdo. All rights reserved.</p>
+        </div>
+
+        <div class="footer-right"></div>
+    </div>
+</footer>
+
+    <a href="#" class="back-to-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </a>
+</footer>
+	<script src="js/ticket.js"></script>
+</body>
+</html>

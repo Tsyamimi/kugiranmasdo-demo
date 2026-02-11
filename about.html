@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kugiran Masdo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css"><br>
+<link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-poppins">
+     <nav class="flex justify-between items-center p-6 bg-black sticky top-0 z-50">
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+    </div>
+    
+    <a href="index.html" class="logo-link">
+        <img src="img/masdo_logo.png" alt="Masdo Logo" class="h-16">
+    </a>
+    
+    <div class="nav-links">
+        <a href="ticket.html">TICKET</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+   <section class="hero-section">
+    <div class="hero-image-container">
+        <img src="img/about_bg.png" alt="Masdo Live" class="hero-img">
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="img/masdo_circle.png" alt="Kugiran Masdo" class="circle-img">
+        </div>
+
+        <div class="about-text">
+            <p>
+               Formed in 2015, <strong>Kugiran Masdo</strong> is a Malaysian band that’s brought the magic of 60s pop yeh-yeh into the 21st century. With their catchy melodies, smooth guitar riffs, and a touch of nostalgia, they’ve redefined the retro vibe for today’s crowd. The band, originally known as The Lipstik, took their name from a character in the iconic Malay film Do Re Mi — and just like that character, they’ve quickly become a beloved figure in the Malaysian music scene.
+            </p>
+        </div>
+    </div>
+</section>
+	
+	<section class="interactive-gallery">
+    <div class="gallery-header">
+        <img src="img/gengpakmaon.png" alt="Geng Pak Maon Title" class="gallery-main-title">
+    </div>
+    <div class="thumbnails-row">
+        <div class="thumb-wrapper" data-id="1">
+            <img src="img/asmawi_color.png" alt="Asmawi" class="thumbnail">
+        </div>
+        <div class="thumb-wrapper" data-id="2">
+            <img src="img/ali_color.png" alt="Ali" class="thumbnail">
+        </div>
+        <div class="thumb-wrapper" data-id="3">
+            <img src="img/putuceri_color.png" alt="Putuceri" class="thumbnail">
+        </div>
+    </div>
+
+    <div class="details-area">
+        <img src="" alt="" class="details-title fade" id="detailsTitle">
+        <p class="details-text fade" id="detailsText"></p>
+    </div>
+</section>
+	
+<section class="songs-section">
+    <div class="songs-header">
+        <h2>Songs</h2>
+        <div class="divider"></div>
+    </div>
+
+    <div class="songs-grid">
+        <div class="song-card song-1" data-audio="audio/janji_manis.mp3">
+            <h3 class="song-title">Janji Manis</h3> 
+            <div class="card-inner">
+                <img src="img/masdo_janjimanis.jpg" alt="Song 1" class="front-img">
+                <img src="img/vinyl.png" alt="Vinyl" class="back-img">
+            </div>
+        </div>
+
+        <div class="song-card song-2" data-audio="audio/bunga.mp3">
+            <h3 class="song-title">Bunga</h3> 
+            <div class="card-inner">
+                <img src="img/masdo_bunga.jpg" alt="Song 2" class="front-img">
+                <img src="img/vinyl.png" alt="Vinyl" class="back-img">
+            </div>
+        </div>
+
+        <div class="song-card song-3" data-audio="audio/pujaanku.mp3">
+            <h3 class="song-title">Pujaanku</h3> 
+            <div class="card-inner">
+                <img src="img/masdo_pujaanku.png" alt="Song 3" class="front-img">
+                <img src="img/vinyl.png" alt="Vinyl" class="back-img">
+            </div>
+        </div>
+
+        <div class="song-card song-4" data-audio="audio/malam_pesta_rock_n_roll.mp3">
+            <h3 class="song-title">Malam Pesta Rock<br>
+             Rock N Roll</h3> 
+            <div class="card-inner">
+                <img src="img/masdo_malam_pesta_rock.jpg" alt="Song 4" class="front-img">
+                <img src="img/vinyl.png" alt="Vinyl" class="back-img">
+            </div>
+        </div>
+
+        <div class="song-card song-5" data-audio="audio/dinda.mp3">
+            <h3 class="song-title">Dinda</h3> 
+            <div class="card-inner">
+                <img src="img/masdo_dinda.jpg" alt="Song 5" class="front-img">
+                <img src="img/vinyl.png" alt="Vinyl" class="back-img">
+            </div>
+        </div>
+
+        <div class="song-card song-6" data-audio="audio/inilahjalannya.mp3">
+            <h3 class="song-title">Inilah Jalannya</h3> 
+            <div class="card-inner">
+                <img src="img/masdo_inilah_jalannya.jpg" alt="Song 6" class="front-img">
+                <img src="img/vinyl.png" alt="Vinyl" class="back-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+<audio id="mainAudio"></audio>
+	
+<footer id="contact" class="main-footer" style="padding-top: 100px;">
+    <div class="footer-container">
+        <div class="footer-left">
+            <img src="img/masdo_logo.png" alt="Masdo Logo" class="footer-logo">
+        </div>
+
+        <div class="footer-center">
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/channel/UCbqZQtg_OZOY0oowT1e1O_g" style="--size: 40px;">
+                    <img src="img/youtube_logo.png" alt="YouTube">
+                </a>
+                <a href="https://open.spotify.com/artist/2r1WoyhX1FSc7AmcF8rkoO?trackId=31ECplyzYRmbQihescMh6N" style="--size: 35px;">
+                    <img src="img/spotify_logo.png" alt="Spotify">
+                </a>
+                <a href="https://www.instagram.com/kugiranmasdo/" style="--size: 38px;">
+                    <img src="img/instagram_logo.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@.masdo" style="--size: 36px;">
+                    <img src="img/tiktok_logo.png" alt="TikTok">
+                </a>
+            </div>
+            <p class="copyright">© 2026 Kugiran Masdo. All rights reserved.</p>
+        </div>
+
+        <div class="footer-right"></div>
+    </div>
+</footer>
+
+    <a href="#top" class="back-to-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </a>
+</footer>
+<script src="js/about.js"></script>
+    </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kugiran Masdo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/masdo.css">
+	<link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-poppins">
+    <nav class="flex justify-between items-center p-6 bg-black sticky top-0 z-50">
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+    </div>
+    
+    <a href="index.html" class="logo-link">
+        <img src="img/masdo_logo.png" alt="Masdo Logo" class="h-16">
+    </a>
+    
+    <div class="nav-links">
+        <a href="ticket.html">TICKET</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+    <header class="relative h-screen bg-cover bg-center hero" style="background-image: url('img/main_poster.png');">
+    <div class="absolute inset-0 flex flex-col justify-center items-center"> 
+    <button class="btn-concert" id="openModalBtn">
+        CONCERT DETAILS
+    </button>
+</div>
+
+<div id="concertModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <div class="modal-body">
+            <h2 class="modal-title">CONCERT DETAILS</h2>
+            
+            <div class="modal-wrapper">
+                
+                <div class="modal-poster">
+                    <img src="img/masdo_bunga.jpg" alt="Concert Poster">
+                </div>
+                
+                <div class="details-grid">
+                    <p><strong>DATE:</strong> May 3, 2026</p>
+                    <p><strong>VENUE:</strong> PAJC, Petaling</p>
+                    <p><strong>TIME:</strong> 8:00 PM</p>
+                    <p><strong>TICKET:</strong> RM 148 - RM 1200</p>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+    <a href="ticketbuy.html" target="_blank" class="ticket-link">
+        <button class="buy-tickets-btn">BUY TICKETS</button>
+    </a>
+</div>
+        </div>
+    </div>
+</div>
+</header>
+    <section class="p-10 flex flex-col items-center">
+        <p class="font-helvetica text-gray-300 max-w-2xl text-center mb-10">
+            Watch the electrifying highlights as Masdo celebrates a decade of unforgettable music, epic performances, and loyal fans. Let the nostalgia and energy take over!
+        </p>
+    </section>
+       <section class="video-section">
+    <a href="https://www.youtube.com/watch?v=vUVXJmkzJms" target="_blank" class="video-container">
+        <img src="img/video_thumbnail.png" alt="Video Thumbnail">
+        
+        <div class="play-button">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+            </svg>
+        </div>
+    </a>
+</section>
+<div id="lightbox" class="lightbox">
+    <span class="close-btn">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<section class="brochure-section">
+    <div class="grid-container">
+        <div class="media-column">
+            <div class="title-image-brochure">
+                <img src="img/brochure.png" alt="Brochure Title">
+            </div>
+            <div class="content-image lightbox-trigger">
+                <img src="img/masdo_bunga.jpg" alt="Brochure Design">
+            </div>
+        </div>
+
+        <div class="media-column">
+            <div class="title-image-flyer">
+                <img src="img/flyer.png" alt="Flyer Title">
+            </div>
+            <div class="content-image lightbox-trigger">
+                <img src="img/masdo_bunga.jpg" alt="Flyer Design">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="merch-section" style="background-image: url('img/background_pic.png');">
+    <div class="merch-overlay">
+        <div class="merch-container">
+            
+            <div class="merch-brand">
+                <img src="img/toko_rasmi_masdo_logo.png" alt="Toko Rasmi Masdo" class="shop-logo">
+                
+                <div class="social-handles">
+                    <a href="https://shopee.com.my/tokorasmimasdo" target="_blank" class="social-item">
+                        <div class="icon-circle">
+                            <img src="img/shopee_logo.png" alt="Shopee" class="social-icon">
+                        </div>
+                        <span>@TOKORASMIMASDO</span>
+                    </a>
+
+                    <a href="https://instagram.com/tokorasmimasdo" target="_blank" class="social-item">
+                        <div class="icon-circle">
+                            <img src="img/instagram_logo.png" alt="Instagram" class="social-icon">
+                        </div>
+                        <span>@TOKORASMIMASDO</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="shirt-wrapper">
+                        <img src="img/merch1.png" alt="Black Masdo Shirt" class="shirt-img">
+                    </div>
+					<a href="https://shopee.com.my/tokorasmimasdo" target="_blank">
+                    <button class="btn-buy">BUY NOW</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="shirt-wrapper">
+                        <img src="img/merch2.png" alt="White Masdo Shirt" class="shirt-img">
+                    </div>
+					<a href="https://shopee.com.my/tokorasmimasdo" target="_blank">
+                    <button class="btn-buy">BUY NOW</button>
+                </div>
+            </div>
+            </div> </div>
+</section>
+<footer id="contact" class="main-footer" style="padding-top: 100px;">
+    <div class="footer-container">
+        <div class="footer-left">
+            <img src="img/masdo_logo.png" alt="Masdo Logo" class="footer-logo">
+        </div>
+
+        <div class="footer-center">
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/channel/UCbqZQtg_OZOY0oowT1e1O_g" style="--size: 40px;">
+                    <img src="img/youtube_logo.png" alt="YouTube">
+                </a>
+                <a href="https://open.spotify.com/artist/2r1WoyhX1FSc7AmcF8rkoO?trackId=31ECplyzYRmbQihescMh6N" style="--size: 35px;">
+                    <img src="img/spotify_logo.png" alt="Spotify">
+                </a>
+                <a href="https://www.instagram.com/kugiranmasdo/" style="--size: 38px;">
+                    <img src="img/instagram_logo.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@.masdo" style="--size: 36px;">
+                    <img src="img/tiktok_logo.png" alt="TikTok">
+                </a>
+            </div>
+            <p class="copyright">© 2026 Kugiran Masdo. All rights reserved.</p>
+        </div>
+
+        <div class="footer-right"></div>
+    </div>
+</footer>
+
+    <a href="#" class="back-to-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </a>
+</footer>
+	<script src="js/masdo.js"></script>
+    </body>
+</html>

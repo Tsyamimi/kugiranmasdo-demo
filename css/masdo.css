@@ -1,0 +1,724 @@
+@charset "utf-8";
+/* CSS Document */
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Helvetica', sans-serif; /* Body font */
+}
+
+/* Typography Overrides */
+h1, h2, button, nav a {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Navigation */
+/* 1. Adjustable Nav Spacing & 3. Hover Underline */
+.nav-links {
+    display: flex;
+    gap: 60px; /* ADJUST THIS: Smaller value = closer together */
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+/* 1. The base link state */
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: white; /* Default color */
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* 2. Change the text color on hover */
+.nav-links a:hover {
+    color: #d29301; /* Text turns gold */
+}
+
+/* 3. The Line Underneath (unchanged but cleaned up) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #d29301;
+    transition: width 0.3s ease;
+}
+
+/* 4. Make the line grow on hover */
+.nav-links a:hover::after {
+    width: 100%;
+}
+/* 4. Cylindrical Button Styling */
+.btn-concert {
+    background: transparent;
+    border: 2px solid #d29301; /* Your specific color */
+    color: #d29301;
+    padding: 12px 40px;
+    border-radius: 50px; /* Makes it cylindrical */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+	margin-top: 190px;
+	margin-right: 550px;
+}
+
+.btn-concert:hover {
+    background-color: #d29301;
+    color: white; /* Font changes to white on hover */
+    box-shadow: 0 0 15px rgba(210, 147, 1, 0.4); /* Optional glow */
+}
+
+/* 2. Logo Link behavior */
+.logo-link {
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05); /* Slight pop when hovering logo */
+}
+
+/* Hero Section */
+/* Hero Section - Updated */
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* REMOVED: .hero::after to take away the black tint */
+
+.hero-content {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.btn-concert:hover {
+    background: #d29301;
+    color: black;
+}
+/* --- Modal Overlay (Dark Background) --- */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark transparent background */
+    z-index: 1000; /* Sit on top of everything */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* Optional: blurs background slightly */
+}
+
+/* --- Modal Content Box --- */
+.modal-content {
+    background-color: #111; /* Dark gray background */
+    border: 1px solid #333;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+    border-radius: 8px;
+    color: white;
+    font-family: Arial, sans-serif; /* Change to your preferred font */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-out; /* Animation */
+}
+
+/* --- Close Button --- */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+/* --- Modal Text Styling --- */
+.modal-title {
+    color: #d29301;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.details-grid p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.details-grid strong {
+    color: #ccc;
+    margin-right: 5px;
+}
+
+/* --- Action Buttons --- */
+.modal-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+.ticket-link {
+    text-decoration: none;
+    display: inline-block; /* Helps maintain button dimensions */
+}
+.buy-tickets-btn {
+    background-color: #d29301;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+	transition: transform 0.2s, background-color 0.3s;
+}
+
+.buy-tickets-btn:hover {
+    transform: scale(1.05);
+    background-color: #ff0000; /* Brightens the red on hover */
+}
+
+/* --- Animation --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+/* --- NEW: Layout Wrapper --- */
+.modal-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* --- NEW: Poster Styling --- */
+.modal-poster {
+    flex: 1; /* Takes up 50% width */
+    max-width: 200px; /* Limits width of image */
+}
+
+.modal-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+
+/* --- Adjusted Details Grid --- */
+.details-grid {
+    flex: 1; /* Takes up remaining 50% width */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .modal-wrapper {
+        flex-direction: column; /* Stacks image on top of text on small screens */
+        align-items: center;
+    }
+    
+    .modal-poster {
+        max-width: 150px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Video Section Container */
+.video-section {
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+}
+
+/* The Clickable Container */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    cursor: pointer;
+    overflow: hidden; /* Keeps the zoom effect contained */
+    transition: transform 0.3s ease;
+    display: block;
+	margin-top: -120px;
+}
+
+/* Zoom effect on the whole image when hovered */
+.video-container:hover {
+    transform: scale(1.02);
+}
+
+.video-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+/* The Play Button - Now Gold */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #d29301; /* Your specific gold color */
+    padding: 20px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.play-button svg {
+    width: 40px;
+    height: 40px;
+    color: white; /* Play icon stays white for contrast */
+}
+
+/* Hover Animation for the button */
+.video-container:hover .play-button {
+    transform: translate(-50%, -50%) scale(1.15);
+    background-color: #f0aa02; /* Slightly brighter gold on hover */
+    box-shadow: 0 0 20px rgba(210, 147, 1, 0.6); /* Gold glow */
+}
+
+/* Brochure & Flyer Section Styling */
+.brochure-section {
+    padding: 60px 10%;
+    background-color: black;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 50px; /* Space between Brochure and Flyer columns */
+    align-items: start;
+}
+/* Make content images look clickable */
+.lightbox-trigger {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-trigger:hover {
+    transform: scale(1.02);
+}
+
+/* Lightbox Background */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Lightbox Image Styling */
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80%;
+    border: 3px solid #d29301; /* Masdo Gold border */
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.media-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the title and image within the column */
+}
+
+.title-image {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px; /* Limits the size of the 'Brochure'/'Flyer' text images */
+}
+
+.title-image img {
+    width: 100%;
+    height: auto;
+}
+
+.title-image-flyer {
+width: 40%;
+height: auto;
+margin-bottom: 20px;
+}
+.title-image-brochure {
+	width: 69%;
+height: auto;
+margin-bottom: 20px;
+}
+
+.content-image {
+    width: 100%;
+    border: 1px solid #333; /* Subtle border for the placeholder */
+    transition: transform 0.3s ease;
+}
+
+.content-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Hover effect for the main images */
+.content-image:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    border-color: #d29301; /* Border turns gold on hover */
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+    }
+}
+/* Merch Section Wrapper - Full Width Background */
+.merch-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Takes full viewport height */
+    width: 100%; /* Takes full viewport width */
+    display: flex;
+}
+
+/* Background Overlay for visibility */
+.merch-overlay {
+    background: rgba(0, 0, 0, 0.4); /* Darkens background for text contrast */
+    width: 100%;
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    padding: 60px 0;
+}
+
+/* Container to handle margins and layout */
+.merch-container {
+    display: flex;
+    flex-direction: row; /* Branding and products side-by-side */
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto; /* Centers the container */
+    gap: 40px;
+}
+
+/* Branding Area */
+.merch-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 0 0 350px; /* Fixed width for left side */
+}
+
+.shop-logo {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Social Handles Layout */
+.social-handles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Spacing between circle and text */
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.social-item:hover {
+    transform: translateX(5px);
+}
+
+/* Circular Background for Icons */
+.icon-circle {
+    background-color: #d29301; /* Gold color */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    width: 65px; /* Icon size inside circle */
+    height: auto;
+    
+}
+.social-icon span :after {
+color: #d29301;
+}
+
+/* Product Grid Area */
+.product-grid {
+    display: flex;
+    flex-direction: row; /* Shirts side-by-side */
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shirt-wrapper {
+    background-color: #1a3a60; /* Blue background for shirts */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.shirt-img {
+    width: 250px;
+    height: auto;
+}
+
+/* Buy Now Buttons */
+.btn-buy {
+    background-color: #d29301;
+    color: white;
+    border: none;
+    padding: 14px 50px; /* Slightly larger for better clickability */
+    border-radius: 50px; /* Perfect pill shape */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    
+    /* Professional Transition: Handles color, transform, and shadow simultaneously */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-buy:hover {
+    background-color: #e5a102; /* Brighter gold on hover */
+    transform: translateY(-3px); /* Snappy lift */
+    box-shadow: 0 10px 20px rgba(210, 147, 1, 0.3); /* Soft gold glow */
+}
+
+.btn-buy:active {
+    transform: translateY(-1px); /* Pressed feel */
+}
+/* Clean Shirt Hover - No Blue, No Frame */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.shirt-wrapper {
+    /* We remove overflow and border-radius to prevent any 'box' shape */
+    background: none; 
+    border: none;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.shirt-img {
+    width: 320px; /* Adjust size as needed */
+    height: auto;
+    display: block;
+    /* This filter adds a subtle shadow to just the shirt shape, not a box */
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+    transition: all 0.5s ease;
+}
+
+/* Professional Animation: Just the shirt lifts and glows slightly */
+.product-card:hover .shirt-wrapper {
+    transform: translateY(-15px);
+}
+
+.product-card:hover .shirt-img {
+    transform: scale(1.05);
+    /* Shadow gets deeper as the shirt 'lifts' */
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+}
+:root {
+    --footer-icon-size: 35px; 
+    --masdo-gold: #d29301;
+}
+
+.main-footer {
+    background-color: black;
+    padding: 40px 0; /* Vertical padding */
+    border-top: 1px solid #111;
+    color: white;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+	margin-left: 50px;
+}
+
+/* 1. Left Section: Logo stays left */
+.footer-left {
+    flex: 1; /* Takes 1/3 of the space */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footer-logo {
+    height: 90px;
+    width: auto;
+
+}
+
+/* 2. Center Section: Socials & Copyright perfectly centered */
+.footer-center {
+    flex: 1; /* Takes 1/3 of the space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+	margin-left: 300px;
+	margin-top: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center; /* Ensures icons of different sizes stay aligned in the middle */
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.footer-socials img {
+    /* Individually adjustable size */
+    width: var(--size, 35px); 
+    height: auto;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+}
+
+.footer-socials img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.1);
+}
+.copyright {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    white-space: nowrap; /* Prevents text from breaking into two lines */
+    color: white;
+	margin-left: 10px;
+}
+
+/* 3. Right Section: Keeps the balance */
+.footer-right {
+    flex: 1; /* Takes 1/3 of the space */
+}
+
+/* Floating Back to Top stays as is */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background-color: var(--masdo-gold);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    text-decoration: none;
+}
+#contact {
+    scroll-margin-top: 80px; /* Adjust this to match your navbar height */
+}
+
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,538 @@
+@charset "utf-8";
+/* CSS Document */
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Helvetica', sans-serif; /* Body font */
+}
+
+/* Typography Overrides */
+h1, h2, button, nav a {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 60px; /* ADJUST THIS: Smaller value = closer together */
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+/* 1. The base link state */
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: white; /* Default color */
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* 2. Change the text color on hover */
+.nav-links a:hover {
+    color: #d29301; /* Text turns gold */
+}
+
+/* 3. The Line Underneath (unchanged but cleaned up) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #d29301;
+    transition: width 0.3s ease;
+}
+
+/* 4. Make the line grow on hover */
+.nav-links a:hover::after {
+    width: 100%;
+}
+/* 2. Logo Link behavior */
+.logo-link {
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05); /* Slight pop when hovering logo */
+}
+
+/* Hero Section Styling */
+.hero-section {
+    width: 100%;
+    background-color: black;
+    padding-bottom: 50px;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Optional: slightly darken the image to match the mood */
+    filter: brightness(0.8);
+}
+
+/* About Section Styling */
+.about-section {
+    background-color: black;
+    padding: 80px 0;
+    color: white;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row; /* Keeps image and text in one row */
+    align-items: center; /* Vertically centers the text with the image */
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px; /* Space between the circle and the text */
+    padding: 0 5%;
+}
+
+/* Circular Image Handling */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Pushes image toward the center */
+}
+
+.circle-img {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #222;
+    margin-right: 50px;
+    
+    /* ADD THIS LINE to link the animation */
+    animation: rotateVinyl 10s linear infinite;
+}
+
+/* ADD THIS BLOCK to define the animation behavior */
+@keyframes rotateVinyl {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* Text Content Handling */
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #cccccc; /* Slightly dimmed white for a premium look */
+    max-width: 500px;
+}
+
+/* Mobile Responsiveness (Stacks them on small screens) */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-text p {
+        text-align: center;
+    }
+    
+    .circle-img {
+        width: 300px;
+        height: 300px;
+    }
+}
+.interactive-gallery {
+    padding: 50px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.gallery-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Space between title and pictures */
+}
+
+.gallery-main-title {
+    max-width: 300px; /* Adjust this to make the title bigger or smaller */
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+}
+
+/* Subtle hover effect for the main title logo */
+.gallery-main-title:hover {
+    transform: scale(1.05);
+}
+
+/* Thumbnail Row */
+.thumbnails-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.thumb-wrapper {
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 4px;
+}
+
+/* Base state: Black and White */
+.thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%); /* B&W */
+    transition: all 0.5s ease;
+}
+
+/* Hover: Scale up, remove filter */
+.thumb-wrapper:hover {
+    border-color: #d29301;
+    box-shadow: 0 0 15px rgba(210, 147, 1, 0.4);
+}
+
+.thumb-wrapper:hover .thumbnail {
+    filter: grayscale(0%); /* Color on hover */
+    transform: scale(1.08);
+}
+
+/* SELECTED STATE: Keeps color, lifts, and adds border */
+.thumb-wrapper.selected {
+    border-color: #d29301;
+    transform: translateY(-5px); /* Lift animation */
+    box-shadow: 0 5px 15px rgba(210, 147, 1, 0.3);
+}
+
+.thumb-wrapper.selected .thumbnail {
+    filter: grayscale(0%); /* Keep color */
+}
+
+/* Details Area */
+.details-area {
+    text-align: center;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.details-title {
+    max-height: 80px; /* Adjust based on your title image size */
+    width: auto;
+    transition: opacity 0.3s ease;
+}
+
+.details-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Class to handle fade effect during switch */
+.fade {
+    opacity: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.songs-section {
+    background-color: black;
+    color: white;
+    padding: 80px 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.song-title {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.songs-grid {
+    display: grid;
+    /* This creates exactly 3 columns of equal width */
+    grid-template-columns: repeat(3, 1fr); 
+    
+    /* Increased gap to accommodate the sliding animation */
+    gap: 100px 40px; 
+    
+    /* Maximum width to keep the grid centered and contained */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.songs-header {
+    margin-left: 200px;
+    font-size: 20px;
+    /* Apply Poppins to the header container */
+    font-family: 'Poppins', sans-serif; 
+	margin-top: -100px;}
+
+.songs-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* Makes it look professional and bold */
+    text-transform: none; /* Keeps the casing as you typed it */
+    margin: 0; /* Removes default browser spacing */
+}
+
+.divider {
+    width: 995px; /* Adjust length of the line */
+    height: 2px;
+    background-color: white; /* Or your theme color */
+    margin-top: 20px;
+}
+/* 1. Set the base transition on the card */
+.song-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    
+    /* Use a "Cubic Bezier" for a high-end, organic feel */
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Default variables so the code doesn't break */
+    --x: 0px;
+    --y: 0px;
+    
+    /* Apply the variables to the card's initial state */
+    transform: translate(var(--x), var(--y));
+}
+
+/* 2. Professional Hover: Combines the nudge + the lift */
+.song-card:hover {
+    /* We keep the X/Y and subtract 15px from the Y for the lift */
+    transform: translate(var(--x), calc(var(--y) - 15px)) scale(1.02);
+}
+
+/* 3. Individual Positioning using Variables */
+.song-1 { --x: 0px;  --y: 15px; }
+.song-2 { --x: 10px; --y: 15px; }
+.song-3 { --x: 15px; --y: 13px; }
+.song-4 { --x: 0px;  --y: -26px; }
+.song-5 { --x: 10px; --y: 0px; }
+.song-6 { --x: 25px; --y: 0px; }
+
+
+
+/* Subtle glow to the title on hover */
+
+.song-card:hover .song-title {
+
+    color: #d29301;
+
+    text-shadow: 0 0 10px rgba(210, 147, 1, 0.5);
+
+}
+
+
+
+/* Make the shadow stronger when hovered */
+
+.song-card:hover .card-inner {
+
+    box-shadow: 0 10px 25px rgba(210, 147, 1, 0.2);
+
+}
+
+/* Subtle glow to the title on hover */
+.song-card:hover .song-title {
+    color: #d29301;
+    text-shadow: 0 0 10px rgba(210, 147, 1, 0.5);
+}
+
+/* Make the shadow stronger when hovered */
+.song-card:hover .card-inner {
+    box-shadow: 0 10px 25px rgba(210, 147, 1, 0.2);
+}
+
+.card-inner {
+    position: relative;
+    width: 250px; /* Size for 3x2 */
+    height: 250px;
+}
+/* Front Cover Base State */
+.front-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.back-img {
+    width: 96%;
+    height: 96%;
+    position: absolute;
+    top: 2%;
+    left: 0;
+    z-index: 1;
+    border-radius: 50%;
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+/* --- CLICKED STATES --- */
+
+.song-card.flipped .front-img {
+    transform: translateX(-50px); /* Slides Left */
+}
+
+.song-card.flipped .back-img {
+    transform: translateX(90px); /* Slides Right */
+    animation: vinylSpin 3s linear infinite;
+    animation-delay: 0.4s;
+}
+@keyframes vinylSpin {
+    from { transform: translateX(90px) rotate(0deg); }
+    to { transform: translateX(90px) rotate(360deg); }
+}
+
+
+:root {
+    --footer-icon-size: 35px; 
+    --masdo-gold: #d29301;
+}
+
+.main-footer {
+    background-color: black;
+    padding: 40px 0; /* Vertical padding */
+    border-top: 1px solid #111;
+    color: white;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+	margin-right: 100px;
+}
+
+/* 1. Left Section: Logo stays left */
+.footer-left {
+    flex: 1; /* Takes 1/3 of the space */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footer-logo {
+    height: 90px;
+    width: auto;
+
+}
+
+/* 2. Center Section: Socials & Copyright perfectly centered */
+.footer-center {
+    flex: 1; /* Takes 1/3 of the space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center; /* Ensures icons of different sizes stay aligned in the middle */
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.footer-socials img {
+    /* Individually adjustable size */
+    width: var(--size, 35px); 
+    height: auto;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+}
+
+.footer-socials img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.1);
+}
+.copyright {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    white-space: nowrap; /* Prevents text from breaking into two lines */
+    color: white;
+	margin-left: 10px;
+}
+
+/* 3. Right Section: Keeps the balance */
+.footer-right {
+    flex: 1; /* Takes 1/3 of the space */
+}
+
+/* Floating Back to Top stays as is */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background-color: var(--masdo-gold);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    text-decoration: none;
+}
+#contact {
+    scroll-margin-top: 80px; /* Adjust this to match your navbar height */
+}
+
+html {
+    scroll-behavior: smooth;
+}
