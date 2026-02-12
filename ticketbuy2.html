@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kugiran Masdo </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/ticketbuy.css">
+	<link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-poppins">
+     <nav class="flex justify-between items-center p-6 bg-black sticky top-0 z-50">
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+    </div>
+    
+    <a href="index.html" class="logo-link">
+        <img src="img/masdo_logo.png" alt="Masdo Logo" class="h-16">
+    </a>
+    
+    <div class="nav-links">
+        <a href="ticket.html">TICKET</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+	<section class="ticketing-page">
+    <header class="concert-header">
+        <div class="header-content">
+            <img src="img/main_poster.png" alt="Masdo 10 Tahun" class="header-poster">
+            <div class="header-text">
+                <h1>Kugiran Masdo 10 tahun</h1>
+                <p>Aug 13, 2026   -     20:00PM</p>
+                <p>Zepp, KL</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <div class="map-section">
+            <h2>Venue Map</h2>
+           <div class="venue-grid">
+   <div class="vvip-side left">
+    <div class="seat-box vvip" data-cat="VVIP" data-box="Box 1" data-price="1200">VVIP <br> Box 1</div>
+    <div class="seat-box vvip" data-cat="VVIP" data-box="Box 2" data-price="1200">VVIP <br> Box 2</div>
+    <div class="seat-box vvip" data-cat="VVIP" data-box="Box 3" data-price="1200">VVIP <br> Box 3</div>
+    <div class="seat-box vvip" data-cat="VVIP" data-box="Box 4" data-price="1200">VVIP <br> Box 4</div>
+</div>
+
+<div class="center-floor">
+    <div class="stage">Stage</div>
+    <div class="seat-box rockzone" data-cat="Rockzone" data-box="General" data-price="258">Rockzone</div>
+    <div class="seat-box cat1" data-cat="Cat 1" data-box="General" data-price="188">Cat 1 <br><span>Upper Back</span></div>
+</div>
+
+<div class="vvip-side right">
+    <div class="seat-box vvip" data-cat="VVIP" data-box="Box 5" data-price="1200">VVIP <br> Box 5</div>
+    <div class="seat-box vvip" data-cat="VVIP" data-box="Box 6" data-price="1200">VVIP <br> Box 6</div>
+    <div class="seat-box vvip" data-cat="VVIP" data-box="Box 7" data-price="1200">VVIP <br> Box 7</div>
+    <div class="seat-box vvip" data-cat="VVIP" data-box="Box 8" data-price="1200">VVIP <br> Box 8</div>
+</div>
+        </div>
+
+<div class="category-section">
+    <div class="cat-item rockzone-row" data-cat="Rockzone" onclick="selectCategory('Rockzone', 148)">
+        <div class="cat-info">
+            <h3>Rockzone</h3>
+            <p>Free Seating</p>
+        </div>
+        <div class="cat-price">RM 148</div>
+    </div>
+
+    <div class="cat-item cat1-row" data-cat="Cat 1" onclick="selectCategory('Cat 1', 198)">
+        <div class="cat-info">
+            <h3>Cat 1</h3>
+            <p>Free Seating</p>
+        </div>
+        <div class="cat-price">RM 198</div>
+    </div>
+
+    <div class="cat-item vvip-row" data-cat="VVIP" onclick="toggleVVIPSelector()">
+        <div class="cat-info">
+            <h3>VVIP</h3>
+            <p id="vvip-status">Select a Box</p>
+            
+            <div id="vvip-box-grid" class="vvip-grid-hidden">
+                <span onclick="selectSpecificBox('Box 1', event)">1</span>
+                <span onclick="selectSpecificBox('Box 2', event)">2</span>
+                <span onclick="selectSpecificBox('Box 3', event)">3</span>
+                <span onclick="selectSpecificBox('Box 4', event)">4</span>
+                <span onclick="selectSpecificBox('Box 5', event)">5</span>
+                <span onclick="selectSpecificBox('Box 6', event)">6</span>
+                <span onclick="selectSpecificBox('Box 7', event)">7</span>
+                <span onclick="selectSpecificBox('Box 8', event)">8</span>
+            </div>
+        </div>
+        <div class="cat-price">RM 1,200</div>
+    </div>
+</div>
+    </div>
+</section>
+	
+	<div id="checkout-bar" class="checkout-bar-hidden">
+    <div class="checkout-details">
+        <p id="summary-label">Nothing selected</p>
+        <p id="summary-price" style="color: #d29301; font-weight: bold;">RM 0</p>
+    </div>
+    <button class="btn-confirm" onclick="openPaxModal()">CONFIRM TO BUY</button>
+</div>
+
+<div id="paxModal" class="modal-overlay" onclick="handleOutsideClick(event)">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closePaxModal()">&times;</span>
+        <h2 style="margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px;">ORDER SUMMARY</h2>
+        
+        <div class="modal-body">
+            <p style="font-size: 1.1rem;"><strong id="pax-cat-name">Category</strong></p>
+            
+            <div class="pax-input" style="margin: 20px 0;">
+                <label style="display: block; margin-bottom: 10px;">How many tickets?</label>
+                <select id="pax-count" onchange="calculateTotal()" style="width: 100%; padding: 10px; background: #222; color: white; border: 1px solid #444;">
+                    <option value="1">1 Pax</option>
+                    <option value="2">2 Pax</option>
+                    <option value="3">3 Pax</option>
+                    <option value="4">4 Pax</option>
+                </select>
+            </div>
+
+            <div class="total-section" style="display: flex; justify-content: space-between; font-size: 1.3rem; margin-bottom: 20px;">
+                <span>Total Amount:</span>
+                <span id="pax-total-price" style="color: #d29301;">RM 0</span>
+            </div>
+
+            <p style="text-align: left; font-size: 0.8rem; color: #888; margin-bottom: 10px;">Select Bank:</p>
+            <div class="bank-selection" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+                <button class="bank-btn" onclick="setBank('Maybank')">Maybank2u</button>
+                <button class="bank-btn" onclick="setBank('CIMB')">CIMB Clicks</button>
+            </div>
+
+            <button class="btn-pay" onclick="proceedToPayment()">PROCEED TO SECURE PAYMENT</button>
+        </div>
+    </div>
+</div>
+<footer id="contact" class="main-footer" style="padding-top: 100px;">
+    <div class="footer-container">
+        <div class="footer-left">
+            <img src="img/masdo_logo.png" alt="Masdo Logo" class="footer-logo">
+        </div>
+
+        <div class="footer-center">
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/channel/UCbqZQtg_OZOY0oowT1e1O_g" style="--size: 40px;">
+                    <img src="img/youtube_logo.png" alt="YouTube">
+                </a>
+                <a href="https://open.spotify.com/artist/2r1WoyhX1FSc7AmcF8rkoO?trackId=31ECplyzYRmbQihescMh6N" style="--size: 35px;">
+                    <img src="img/spotify_logo.png" alt="Spotify">
+                </a>
+                <a href="https://www.instagram.com/kugiranmasdo/" style="--size: 38px;">
+                    <img src="img/instagram_logo.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@.masdo" style="--size: 36px;">
+                    <img src="img/tiktok_logo.png" alt="TikTok">
+                </a>
+            </div>
+            <p class="copyright">© 2026 Kugiran Masdo. All rights reserved.</p>
+        </div>
+
+        <div class="footer-right"></div>
+    </div>
+</footer>
+
+    <a href="#top" class="back-to-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </a>
+</footer>
+<script src="js/ticketbuy.js"></script>
+    </body>
+</html>
